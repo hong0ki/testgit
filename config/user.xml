@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.mybatis.dao.UserDaoImpl">
+    <select id="selectByUserName" parameterType="string" resultType="com.etc.mybatis.entity.User">
+        select * from user where username = #{username}
+    </select>
+    <select id="selectAllUser"  resultType="com.etc.mybatis.entity.User">
+        select * from user
+    </select>
+    <insert id="insertByUser" parameterType="com.etc.mybatis.entity.User">
+        insert into user(username,password) values(#{username},#{password})
+    </insert>
+    <update id="updateByUserName" parameterType="com.etc.mybatis.entity.User">
+        update user set password=#{password} where username=#{username}
+    </update>
+    <delete id="deleteById" parameterType="com.etc.mybatis.entity.User">
+        delete  from user where id=#{id}
+    </delete>
+</mapper>
